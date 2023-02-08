@@ -1,4 +1,4 @@
-This is GuessIt 1.1
+This is GuessIt
 
 Rule of this game:
 
