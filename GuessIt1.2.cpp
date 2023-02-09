@@ -6,7 +6,9 @@ void playGuessIt();
 int selectNumber(int lower, int high);
 bool replayGuessIt();
 char getPlayerAnswer();
-void getPlayerRange();
+int getPlayerScore(int playerTurn);
+int getPlayerTurn(int turn);
+void printResult(int playerTurn, int playerScore);
 
 int main()
 {
@@ -49,20 +51,25 @@ void getPlayerRange(int& low, int& high)
 }
 void playGuessIt()
 {
-    int x,low, high;
+    int x,low, high, playerTurn, playerScore;
     getPlayerRange(low, high);
     cout << low << " " << high << endl;
     char answer;
+    int turn = 0;
     do{
+        turn++;
         x = selectNumber(low, high);
         cout << x << endl;
         answer = getPlayerAnswer();
         if(answer == '=') 
             cout << "Your number is " << x << endl;
-        if(answer == '>') low = x+1;
-        if(answer == '<') high = x-1;
+        if(answer == '<') low = x+1;
+        if(answer == '>') high = x-1;
         
     }while(answer != '=');
+    playerTurn = getPlayerTurn(turn);
+    playerScore = getPlayerScore(playerTurn);
+    printResult(playerTurn, playerScore);
 }
 bool replayGuessIt()
 {
@@ -74,4 +81,17 @@ bool replayGuessIt()
     else
         cout << "Thanks, see you again!" << endl;
     return false;
+}
+int getPlayerTurn(int turn)
+{
+    return turn;
+}
+void printResult(int playerTurn, int playerScore)
+{
+    cout << "Player has played " << playerTurn << " turns" << endl;
+    cout << "Your Score: " << playerScore << endl << endl;
+}
+int getPlayerScore(int playerTurn)
+{
+    return 100 - playerTurn;
 }
