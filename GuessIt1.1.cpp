@@ -1,4 +1,3 @@
-
 #include <iostream>
 #include <cstdlib>
 #include <ctime>
@@ -22,7 +21,7 @@ int main()
         playGuessIt();
         replay = replayGuessIt();
     } while (replay == true);
-    
+    cout << "Thanks, see you again";
     return 0;
 }
 
@@ -83,12 +82,13 @@ void playGuessIt()
 bool replayGuessIt()
 {
     char event;
-    cout << "Do you want to play again?" << endl << "Select Y to play again" << endl << "Select N to stop" << endl << "[Y/N]? : ";
-    cin >> event;
-    cout << endl;
-    if(event == 'Y' || event == 'y')
+    cout << "Do you want to play again?" << endl;
+    do
+    {
+        cout << "Select Y to play again" << endl << "Select N to stop" << endl << "[Y/N]? : ";
+        cin >> event;
+    } while (event != 'Y' && event != 'N');
+    if(event == 'Y')
         return true;
-    else
-        cout << "Goodluck and see you again! " << endl;
     return false;
 }
