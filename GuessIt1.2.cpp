@@ -18,7 +18,7 @@ int main()
         playGuessIt();
         replay = replayGuessIt();
     } while (replay == true);
-    
+    cout << "Thanks, have a nice day!";
     return 0;
 }
 
@@ -31,11 +31,15 @@ char getPlayerAnswer()
 {
     char answer;
     cout << "This number is higher, lower or equal to your number?" << endl;
-    cout << "Select '>' if your number higher than this number" << endl;
-    cout << "Select '<' if your number lower than this number" << endl;
-    cout << "Select '=' if your number equal to this number" << endl;
-    cout << "[>/</=]? :";
-    cin >> answer;
+    do
+    {
+        cout << "Select '>' if your number higher than this number" << endl;
+        cout << "Select '<' if your number lower than this number" << endl;
+        cout << "Select '=' if your number equal to this number" << endl;
+        cout << "[>/</=]? :";
+        cin >> answer;
+    } while (answer != '>' && answer != '<' && answer != '=');
+    
     return answer;
 }
 void getPlayerRange(int& low, int& high)
@@ -74,12 +78,15 @@ void playGuessIt()
 bool replayGuessIt()
 {
     char replay;
-    cout << "Do you want to play again?" << endl << "Select Y to play again" << endl << "Select N to stop" << endl << "[Y/N]?:";
-    cin >> replay;
-    if(replay == 'Y' || replay == 'y')
+    cout << "Do you want to play again?" << endl;
+    do
+    {
+        cout << "Select Y to play again" << endl << "Select N to stop" << endl << "[Y/N]?:";
+        cin >> replay;
+    } while (replay != 'Y' && replay != 'N');
+    
+    if(replay == 'Y')
         return true;
-    else
-        cout << "Thanks, see you again!" << endl;
     return false;
 }
 int getPlayerTurn(int turn)
