@@ -1,5 +1,4 @@
 
-
 #include <iostream>
 #include <cstdlib>
 #include <ctime>
@@ -36,8 +35,12 @@ int generateRandomNumber()
 int getPlayerGuess()
 {
     int guessNumber;
-    cout << endl << "Enter your number between 1 and 100: ";
-    cin >> guessNumber;
+    do
+    {
+        cout << endl << "Enter your number between 1 and 100: ";
+        cin >> guessNumber;    
+    } while (guessNumber  < 0);
+    
     return  guessNumber;
 }
 
