@@ -3,6 +3,7 @@
 using namespace std;
 
 void playGuessIt();
+void getPlayerRange(low, high);
 int selectNumber(int lower, int high);
 bool replayGuessIt();
 char getPlayerAnswer();
