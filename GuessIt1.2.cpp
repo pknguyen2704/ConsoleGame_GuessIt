@@ -3,8 +3,8 @@
 using namespace std;
 
 void playGuessIt();
-void getPlayerRange(low, high);
-int selectNumber(int lower, int high);
+void getPlayerRange(int low, int high);
+int selectNumber(int low, int high);
 bool replayGuessIt();
 char getPlayerAnswer();
 int getPlayerScore(int playerTurn);
